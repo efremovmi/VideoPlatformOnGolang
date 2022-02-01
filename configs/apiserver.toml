@@ -1,0 +1,6 @@
+bind_addr =     ":5000"
+# database_url = "postgres://postgres:1@localhost:5432/grpc_dev"
+# "user=postgres dbname=connect-db password=secure-password host=localhost sslmode=disable"
+# database_url = "user=postgres dbname=grpc_dev password=1 host=localhost sslmode=disable port=5432"
+database_url = "postgres://postgres:1@localhost:5432/grpc_dev?sslmode=disable"
+session_key = "09ohm8feh62aeby0b0fpao61xedh6hgccld68iqtc0orz1pbahx1idf7uvq0l0obg33jjncvsukrzlx8ni090czqzr880k3eqnl5ezx15o1p81hloy14kob2jqjburoo-0m9n6xe3s9uv87d7ximbl3gnj7c4tmav74gqakop2rraqttcr54iyuvz56kee8fjnel7wlufyrbmmll5rf0248pcxdh1u72pcw27m4g9p2bomhev4zsvcj10za1jsl5p"

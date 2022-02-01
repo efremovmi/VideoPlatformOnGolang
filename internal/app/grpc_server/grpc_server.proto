@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package grpc_service;
+
+option go_package = "github.com/genridarkbkru/registration";
+
+
+service ServiceRA {
+    rpc handleUsersCreate(RequestCreate) returns (ResponseCreate) {
+        option (google.api.http) = {
+            post: "/UsersCreate"
+        };
+    }
+    rpc handleSessionsCreate(RequestCreateSessions) returns (ResponseCreateSessions) {
+        option (google.api.http) = {
+            post: "/CheckSessions"
+        };
+    }
+}
+
+message RequestCreate {
+    string email = 1;
+    string password = 2;
+}
+
+message ResponseCreate {
+    string status = 1;
+    int64 id = 2;
+    string email = 3;
+    string err = 4;
+}
+
+message RequestCreateSessions {
+    string email = 1;
+    string password = 2;
+}
+
+message ResponseCreateSessions {
+    string status = 1;
+    bool cookie = 2;
+    string err = 3;
+}

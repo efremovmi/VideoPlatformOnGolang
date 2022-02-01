@@ -1,0 +1,126 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "grpc_server.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/CheckSessions": {
+      "post": {
+        "operationId": "ServiceRA_handleSessionsCreate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpc_serviceResponseCreateSessions"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "ServiceRA"
+        ]
+      }
+    },
+    "/UsersCreate": {
+      "post": {
+        "operationId": "ServiceRA_handleUsersCreate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpc_serviceResponseCreate"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "ServiceRA"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "grpc_serviceResponseCreate": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "email": {
+          "type": "string"
+        },
+        "err": {
+          "type": "string"
+        }
+      }
+    },
+    "grpc_serviceResponseCreateSessions": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "cookie": {
+          "type": "boolean"
+        },
+        "err": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
